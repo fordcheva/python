@@ -148,7 +148,11 @@ class AsyncBufferedConsumerTestCase(unittest.TestCase):
 
         self.wait_for_threads()
 
-        send_patch.assert_called_once_with(self.ENDPOINT, '[{"test": true}]', None)
+        send_patch.assert_called_once_with(
+            self.ENDPOINT,
+            '[{"test": true}]',
+            api_key=None,
+        )
         self.assertEqual(self.consumer._async_buffers[self.ENDPOINT], [self.JSON])
 
     def test_raises_exception_with_bad_endpoint(self):
