@@ -7,6 +7,17 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+* New parameters for the `AsyncBufferedConsumer` constructor: `import_url`,
+  `request_timeout`, `groups_url`, `api_host`, `retry_limit`, `retry_backoff_factor`,
+  `verify_cert`.
+
+### Changed
+
+* Extra arguments (`*args`, `**kwargs`) are no longer accepted in the
+  `AsyncBufferedConsumer` constructor.
+
 ## [0.2.0] - 2019-07-11
 
 ### Added
