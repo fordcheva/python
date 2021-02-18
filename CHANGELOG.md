@@ -7,6 +7,10 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+_There are no unreleased changes at the moment._
+
+## [0.3.0] - 2021-02-18
+
 ### Added
 
 * New parameters for the `AsyncBufferedConsumer` constructor: `import_url`,
@@ -44,7 +48,8 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.0.3] - 2014-04-29
 
-[Unreleased]: https://github.com/jessepollak/mixpanel-python-async/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/jessepollak/mixpanel-python-async/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/jessepollak/mixpanel-python-async/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/jessepollak/mixpanel-python-async/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/jessepollak/mixpanel-python-async/compare/v0.0.6...v0.1.0
 [0.0.6]: https://github.com/jessepollak/mixpanel-python-async/compare/v0.0.5...v0.0.6
