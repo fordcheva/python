@@ -53,8 +53,21 @@ class AsyncBufferedConsumer(SynchronousBufferedConsumer):
     ALL = "ALL"
     ENDPOINT = "ENDPOINT"
 
-    def __init__(self, flush_after=timedelta(0, 10), flush_first=True, max_size=20,
-        events_url=None, people_url=None, *args, **kwargs):
+    def __init__(
+        self,
+        flush_after=timedelta(0, 10),
+        flush_first=True,
+        max_size=20,
+        events_url=None,
+        people_url=None,
+        import_url=None,
+        request_timeout=None,
+        groups_url=None,
+        api_host="api.mixpanel.com",
+        retry_limit=4,
+        retry_backoff_factor=0.25,
+        verify_cert=True,
+    ):
         '''
         Create a new instance of a AsyncBufferedConsumer class.
 
@@ -65,13 +78,30 @@ class AsyncBufferedConsumer(SynchronousBufferedConsumer):
         the consumer receives
         :param max_size (int): the number of events in queue that will trigger
         the queue to be flushed asynchronously
-        :param events_url: the Mixpanel API URL that track events will be sent to
-        :param people_url: the Mixpanel API URL that people events will be sent to
+        :param events_url: Mixpanel API URL that track events will be sent to
+        :param people_url: Mixpanel API URL that people events will be sent to
+        :param import_url: Mixpanel API URL that import events will be sent to
+        :param request_timeout: Connection timeout in seconds
+        :param groups_url: Mixpanel API URL that groups events will be sent to
+        :param api_host: Mixpanel API domain for all requests unless overriden by above URLs
+        :param retry_limit: Number of times to retry each request in case of an error, 0
+        to fail after first attempt.
+        :param retry_backoff_factor: Factor which controls sleep duration between retries:
+        sleep_seconds = backoff_factor * (2 ^ (retry_count - 1))
+        :param verify_cert: Whether to verify the server certificate. "True" is
+        recommended.
         '''
         super(AsyncBufferedConsumer, self).__init__(
             max_size=max_size,
             events_url=events_url,
-            people_url=people_url
+            people_url=people_url,
+            import_url=import_url,
+            request_timeout=request_timeout,
+            groups_url=groups_url,
+            api_host=api_host,
+            retry_limit=retry_limit,
+            retry_backoff_factor=retry_backoff_factor,
+            verify_cert=verify_cert,
         )
 
         # remove the minimum max size that the SynchronousBufferedConsumer

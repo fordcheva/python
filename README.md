@@ -34,14 +34,17 @@ For most users, the default configuration should work perfectly. For more specif
 
 
 * `flush_after (datetime.timedelta)` - *defaults to 10 seconds*  - the time period after which the AsyncBufferedConsumer will flush the events upon receiving a new event (no matter what the event queue size is)
-
 * `flush_first (bool)` - *defaults to True* - whether the consumer should always flush the first event.
-
 * `max_size (int)` - *defaults to 20* - how big a given event queue can get before it is flushed by the consumer
-
 * `events_url (str)` - *defaults to standard Mixpanel API URL* - the Mixpanel API URL that track events will be sent to
-
 * `people_url (str)` - *defaults to standard Mixpanel API URL* - the Mixpanel API URL that people events will be sent to
+* `import_url (str)` - *defaults to standard Mixpanel API URL* - the Mixpanel API URL that import events will be sent to
+* `request_timeout (int)` - *defaults to `None` (no timeout)* - Connection timeout in seconds.
+* `groups_url (str)` - *defaults to standard Mixpanel API URL* - the Mixpanel API URL that groups events will be sent to
+* `api_host (str)` - *defaults to api.mixpanel.com* - Mixpanel API domain for all requests unless overridden by above URLs
+* `retry_limit (int)` - *defaults to 4* - Number of times to retry each request in case of an error, 0 to fail after first attempt.
+* `retry_backoff_factor` - *defaults to 0.25* - Factor which controls sleep duration between retries: `sleep_seconds = backoff_factor * (2 ^ (retry_count - 1))`
+* `verify_cert` - *defaults to `True`*- Whether to verify the server certificate. `True` is recommended.
 
 ### Usage
 
